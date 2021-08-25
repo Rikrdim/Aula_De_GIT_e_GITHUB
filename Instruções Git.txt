@@ -1,0 +1,141 @@
+|============================= DETALHES ==================================|
+|                                                                         |
+|         ( ) - Exemplos ou observações                                   |
+|         [ ] - Exemplo do que deve ser escrito no cód real               |
+|         === - Início de tema                                            |
+|         ___ - Final de tema                                             |
+|_________________________________________________________________________|
+
+
+===================== Iniciando o GIT ===================== 
+
+1 - git init - Inicia um repositório no GIT
+
+2 - git status - Verificação sobre o status do código. Se está atualizado ou não e se algum          '''''''''''''''' arquivo foi incluído no repositório
+_____________________________________________________________________________
+
+===================== Adicionar arquivos ao controle de versão ===================== 
+
+3 - git add "[NOME DO ARQUIVO]" (Exemplo: git add "projeto1.txt") - Adição de arquivos ao controle ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''  de versão. 
+(Observação: depois de digitar git add "P" e a primeira letra do arquivo, aperta TAB que o '''''''''''' terminal completa o nome do arquivo)
+
+3.1 - git add . - Adição de todos os arquivos novos e atalizados disponíveis. 
+(Observação: depois de adicionar arquivo no controle de versão, usa novamente o git status pra ter  '''''''''''' certeza que o controle foi atualizado com os arquivos que foram adicionados.)
+_____________________________________________________________________________
+
+===================== Criar versões do cód. com COMMIT ===================== 
+
+4 - git commit -m "[PRIMEIRO COMMIT]" - criação/adição dos arquivos na versão do repositório
+(Observação: Caso seja a primeira vez que esse comando seja rodado, o terminal irá pedir que seja '''''''''''' configurado informações como email e/ou nome, para que seja identificado, quem está '''''''''''' realizando as alterações)
+
+4.1 - git config --global user.name "[SEU NOME]" - Para versão global ( Indicado para máquina de
+                  ou                                                   ''' uso pessoal exclusivo )
+      git config user.name "[SEU NOME]"          - Para versão local ( Indicado para máquina de 
+                  - -                                                 ''' uso público )
+
+4.2 - git config --global user.email "[SEU EMAIL]" - mesma orientação do nome
+                  ou
+      git config user.email "[SEU EMAIL]" - mesma orientação do nome
+      
+(Observação: Caso o terminal não peça essa configuração, é só prosseguir para o passo 5. Se pedir, '''''''''''' realiza a configuração e retorna ao passo 4, depois de configurar.)
+_____________________________________________________________________________
+
+===================== Enviando as versões para o GITHUB ===================== 
+
+5 - git push - Envio dos arquivos comitados para o repositório/nuvem. 
+(Observação: Se o projeto foi recém criado e estes ainda não tiverem sido enviados pra um '''''''''''' repositório, este git não funcionará, pois ainda não foi adicionado ao git o endereço '''''''''''' do repositório criado no GITHUB. Seguir para o passo 5.1)
+
+5.1 - Na página do GITHUB, cria uma nova conta pessoal ou loga com sua conta. 
+
+5.2 - Na página do GITHUB já logada na conta, cria um novo repositório(new repository) 
+      > Digita um nome para o repositório(Repository name) 
+      
+      > Inserir descrição é opcional
+      
+      > Escolher se é um repositório publico (a vista de outras pessoas) ou privado ( Só o usuário ''''''' principal tem acesso ao repositório. Indicado para projetos que será vendido futuramente ''''''' ou que contenha informações sensíveis)
+      
+      > Macar ou não o checkbox Add a README file ( Recomendado marcar, pois é um arquivo de ''''''' instrução que é criado para que outras pessoas vejam como usar o repositório
+      
+      > Macar ou não o checkbox Add gitginore
+      
+      > Macar ou não o checkbox Add choose a license
+      
+      > CREATING REPOSITORY.. ( Botão verde para Criação do repositório que irá receber os ''''''' ''''''' arquivos
+      
+5.3 - Na página inicial do repositório criado, copia o link deste para executar com o passo 5.4.1
+
+5.4.1 - git remote add origin [COLA O LINK DO REPOSITÓRIO] - Git que define para onde o código será '''''''''''''''''''''''''''''''''''''''''''''''''''''''''' enviado
+(exemplo: git remote add origin https://github.com/Rikrdim/Aula_De_GIT_e_GITHUB)
+(Observação: Se for a primeira vez executando este comando, ele não funcionará, pois irá precisar realizar o procedimento do passo 5.4.2)
+
+5.4.2 - git push --set-upstream origin master - Definição inicial para qual branch o código será enviado
+(Observação: Caso seja a primeira vez que esteja fazendo esse procedimento, ao realizar o comando '''''''''''' irá abrir a tela de login do GITHUB para que o GIT e o GITHUB fiquem sincronizados. '''''''''''' Se não solicitar essa autenticação, é porque o GIT já está sincronizado com alguma '''''''''''' conta do GITHUB. Se já for a do usuário que está executando o comando, ok o fluxo '''''''''''' seguirá normal. Se for um computador público, é necessário deslogar dessa conta atual '''''''''''' e mudar para a conta de quem está fazendo o procedimento. )
+_____________________________________________________________________________
+
+===================== Ciclo de atualização do código ===================== 
+
+6 - git push - Envio das atualizações para a branch criada no controle de versão. Seja a branch master ou outra que tenha sido criada.
+_____________________________________________________________________________
+
+===================== Histórico de atualizações do repositório =====================
+
+7 - git reflog - Verifica as versões que foram criadas no repositório até o momento.
+(Observação: Na resposta do terminal, a versão que fica no topo, é sempre a mais atual )
+
+7.1 - git reset --hard [CÓDIGO DA VERSÃO QUE DESEJA VOLTAR] - Navega entre as versões criadas do ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''' código
+(exemplo: git reset --hard 9bc12af (Código de versão fictício, seguir Observação2))
+(Observação1: Este comando é usado quando o usuário comete algum erro no código que já subiu pro '''''''''''' repositório e precisa voltar pra versão anterior )
+(Observação2: O código da versão desejado é encontrado com o git reflog(passo 7))
+(Observação3: Caso o usuário tenha feito o procedimento de mudar pra versão anterior e se '''''''''''' arrependido, é possível retornar para a versão que era do fluxo comum, com o uso do '''''''''''' comando do passo 7.1 (exemplo1_da_Observação3: git reset --hard 2101203 (Código de '''''''''''' versão fictício, seguir Observação2))
+(Observação4: Se o usuário chegou até a Observação3 e quiser saber qual era a versão que estava ''''''''''''entes, no terminal, ela sempre será a segunda, seguindo a orientação da Observação do ''''''''''''passo 7 )
+_____________________________________________________________________________
+
+===================== O que são Branches e como criar uma =====================
+
+Branches: Tradução literal "GALHOS" e é justamente isso que significa. São galhos, ramificações ''''''''' ou mesmo caminhos diferentes no repositório com objetivo de uma equipe ou mesmo um ''''''''' único usuário trabalhar nessas branches com a liberdade de fazer alterações, sem ''''''''' modificar a branch principal. 
+''''''''' Com a criação de novas branches e após o termino do trabalho nessas branches   ''''''''' secundárias, é feito uma atualização da branche principal ( com prévia atualização do ''''''''' gestor/responsável do projeto ) através do comando de merge.
+
+
+
+8 - git branch - Visualização das branchs criadas no projeto
+
+8.1 - git branch [NOME DA BRANCH] - Criação de uma nova branch
+(exemplo: git branch Teste)
+(Observação1: É recomendado usar o comando do passo 8 para verificar se foi criado a nova branch)
+(Observação2: Mesmo com a nova branch criada, perceba que usando o comando do passo 8 e note que ''''''''''''' a branch MASTER (*master) além de ter um asterísco, está verde. Isso é uma ''''''''''''' indicação que a branch que está sendo trabalhada é ela e não a nova que foi ''''''''''''' criada.)
+
+                           OU
+8.1.1 - git checkout -b [NOME DA BRANCH] - cria uma nova branch com base na branch principal  
+(exemplo: git checkout -b NovaBranch)
+
+8.2 - git checkout [NOME DA BRANCH] - Troca de branch para trabalho
+(exemplo: git checkout Teste)
+(Observação1: Para percepção, usando o comando do passo 8 note que desta vez a nova branch criada ''''''''''''' que está com as características do asterísco e a coloração da fonte verde, ''''''''''''' indicando que a branch que está sendo trabalhada é ela e não a anterior/master.)
+
+8.3 - git status, git add ., git commit -m "[ATUALIZAÇÃO]", git push, git push --set-upstream origin [NOME DA BRANCH](exemplo: git push --set-upstream origin Teste) 
+             - Comandos de atualização da nova branch.
+   
+(Observação1: Após a troca de branch e consequentemente adicionar arquivos ou atualização dos ''''''''''''' arquivos já existentes, esse combo de comandos deverão ser executados para que essa ''''''''''''' nova branch seja atualizada. )
+(Observação2: Como foi modificado a branch, o terminal irá solicitar novamente a indicação do ''''''''''''' caminho do repositório, após o uso do comando git push. Neste caso, é só executar o ''''''''''''' comando git push --set-upstream origin [NOME DA BRANCH] que já estará indicando no ''''''''''''' próprio terminal. )
+_____________________________________________________________________________
+
+===================== Unificação do código com MERGE =====================
+
+(Observação: Antes de usar o primeiro comando pra unificação das branchs, é necessário mudar da '''''''''''' branch secundária para a principal, para que esta receba as atualizações da(s) '''''''''''' outra(s) branchs )
+
+9 - git checkout master - mudança para branch master(principal)
+
+9.1 - git pull - Transporta as ultimas atualizações do servidor para a máquina local
+(Observação1: É recomendado fazer essa verificação se o repositório estiver sendo utilizado de ''''''''''''' forma compartilhada, para evitar que o merge esteja enviado atualizações para uma ''''''''''''' branch desatualizada.)
+(Observação2: Caso o usuário esteja trabalhando sozinho no repositório, não há necessidade desse ''''''''''''' comando, pois não terá outras atualizações além da que você mesmo está fazendo. Com ''''''''''''' isso, pode pular direto para o merge.)
+
+9.2 - git merge [NOME DA BRANCH SECUNDÁRIA] - Transporta/Atualiza os arquivos da branch  ''''''''''''''''''''''''''''''''''''''''''''' secundária para principal
+(exemplo: git merge Teste)
+
+9.3 - git push - Envio das atualizações para a branch criada no controle de versão
+_____________________________________________________________________________
+
+===================== Utilização do pull request =====================
+
+10 - 
+
